@@ -1,5 +1,6 @@
 package com.github.privilege.service.impl;
 
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.github.privilege.bean.SysRole;
@@ -52,7 +53,10 @@ public class SysRoleServiceImpl  extends ServiceImpl<ISysRoleDao, SysRole> imple
      * @return
      */
     public int deleteByID(String id) {
-
+        SysUser sysUser = userDao.selectOne(Wrappers.<SysUser>lambdaQuery().eq(SysUser::getRoleId, id));
+        if(sysUser != null){
+            throw new RuntimeException("该角色已有用户使用不能移除");
+        }
         return baseMapper.deleteById(id);
     }
 
