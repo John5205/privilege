@@ -6,7 +6,6 @@ import com.github.privilege.bean.SysUser;
 import com.github.privilege.bean.bo.SysUserBO;
 import com.github.privilege.dao.ISysUserDao;
 import com.github.privilege.service.ISysUserService;
-
 import java.util.List;
 
 public class SysUserServiceImpl extends ServiceImpl<ISysUserDao,SysUser> implements ISysUserService {
@@ -34,7 +33,7 @@ public class SysUserServiceImpl extends ServiceImpl<ISysUserDao,SysUser> impleme
      * @return
      */
     public SysUser getByID(String id) {
-        return baseMapper.getByID(id);
+        return baseMapper.selectById(id);
     }
 
     /**
@@ -44,6 +43,24 @@ public class SysUserServiceImpl extends ServiceImpl<ISysUserDao,SysUser> impleme
      */
     public int deleteById(String id) {
         return baseMapper.deleteById(id);
+    }
+
+    /**
+     * 批量删除用户信息
+     * @param ids
+     * @return
+     */
+    public int deleteBacthById(String[] ids) {
+        return baseMapper.deleteBacthById(ids);
+    }
+
+    /**
+     * 根据用户id修改用户信息
+     * @param user
+     * @return
+     */
+    public int updateByID(SysUser user) {
+        return baseMapper.updateById(user);
     }
 
 

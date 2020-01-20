@@ -33,6 +33,18 @@ public interface ISysUserService extends IService<SysUser> {
      */
     int deleteById(String id);
 
+    /**
+     * 根据id批量删除用户信息
+     * @param ids
+     * @return
+     */
+    int deleteBacthById(String[] ids);
 
+    /**
+     * 根据用户id修改用户信息
+     * @param user
+     * @return
+     */
+    int updateByID(SysUser user);
 
 }
