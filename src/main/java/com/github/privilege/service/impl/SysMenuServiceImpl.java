@@ -6,6 +6,7 @@ import com.github.privilege.bean.SysMenu;
 import com.github.privilege.bean.bo.SysMenuBO;
 import com.github.privilege.dao.ISysMenuDao;
 import com.github.privilege.service.ISysMenuService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,5 +21,12 @@ public class SysMenuServiceImpl extends ServiceImpl<ISysMenuDao, SysMenu> implem
     public List<SysMenu> getListPage(SysMenuBO menuBO) {
         Page page = new Page(menuBO.getPageNum(), menuBO.getPageSize());
         return baseMapper.getListPage(page,menuBO);
+    }
+
+    @Override
+    public int addMenu(SysMenu menu) {
+        SysMenu sysMenu = new SysMenu();
+        BeanUtils.copyProperties(menu,sysMenu);
+        return baseMapper.insert(sysMenu);
     }
 }

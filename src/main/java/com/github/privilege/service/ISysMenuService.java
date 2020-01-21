@@ -1,6 +1,5 @@
 package com.github.privilege.service;
 
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.github.privilege.bean.SysMenu;
 import com.github.privilege.bean.bo.SysMenuBO;
@@ -13,6 +12,14 @@ public interface ISysMenuService extends IService<SysMenu> {
      * @return
      */
     List<SysMenu> getListPage(SysMenuBO menuBO);
+
+    /**
+     * 新增菜单
+     * @return
+     */
+    int addMenu(SysMenu menu);
+
+
 
 
 }

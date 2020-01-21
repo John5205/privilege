@@ -13,11 +13,6 @@ public class SysUser {
     private String id;
 
     /**
-     * 角色id
-     */
-    private String roleId;
-
-    /**
      * 用户名
      */
     private String username;
