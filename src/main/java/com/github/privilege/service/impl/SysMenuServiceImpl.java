@@ -23,4 +23,14 @@ public class SysMenuServiceImpl extends ServiceImpl<ISysMenuDao, SysMenu> implem
     public List<SysMenu> getMenuListAll() {
         return baseMapper.getMenuListAll();
     }
+
+    @Override
+    public int insertMenu(SysMenu sysMenu) {
+        return baseMapper.insert(sysMenu);
+    }
+
+    @Override
+    public int updateMenu(SysMenu sysMenu) {
+        return baseMapper.updateById(sysMenu);
+    }
 }

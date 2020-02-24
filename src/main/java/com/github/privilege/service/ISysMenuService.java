@@ -22,4 +22,18 @@ public interface ISysMenuService extends IService<SysMenu> {
      */
     List<SysMenu> getMenuListAll();
 
+    /**
+     * 新增菜单
+     * @param sysMenu
+     * @return
+     */
+    int insertMenu(SysMenu sysMenu);
+
+    /**
+     * 修改菜单
+     * @param sysMenu
+     * @return
+     */
+    int updateMenu(SysMenu sysMenu);
+
 }

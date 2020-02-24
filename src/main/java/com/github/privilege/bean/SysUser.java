@@ -1,5 +1,7 @@
 package com.github.privilege.bean;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.github.privilege.bean.base.BaseEntity;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,10 +22,8 @@ public class SysUser extends BaseEntity
     private static final long serialVersionUID = 1L;
 
     /** 用户ID */
+    @TableId(type = IdType.ID_WORKER_STR)
     private Long userId;
-
-    /** 角色ID */
-    private Long roleId;
 
     /** 登录名称 */
     @NotBlank(message = "登录账号不能为空")

@@ -1,6 +1,8 @@
 package com.github.privilege.bean;
 
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.github.privilege.bean.base.BaseEntity;
 import lombok.Data;
 
@@ -20,6 +22,7 @@ public class SysMenu extends BaseEntity
     private static final long serialVersionUID = 1L;
 
     /** 菜单ID */
+    @TableId(type = IdType.ID_WORKER_STR)
     private Long menuId;
 
     /** 菜单名称 */
