@@ -7,6 +7,10 @@
         id,role_id,username,account,password,status,tel_phone,email,modify_time,create_time
     </sql>
 
+<!--    查询查单集合-->
+    <select id="getMenuListAll" resultType="com.github.privilege.bean.SysMenu">
+        select * from sys_menu
+    </select>
 
 
 </mapper>

@@ -3,7 +3,7 @@ package com.github.privilege.bean.base;
 import lombok.Data;
 
 @Data
-public class BaseEntiy {
+public class BaseEntity {
     /**
      * 当前页数
      */

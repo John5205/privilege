@@ -2,45 +2,60 @@ package com.github.privilege.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.github.privilege.bean.SysRole;
-import com.github.privilege.bean.bo.SysRoleBO;
 
 import java.util.List;
 
+/**
+ * @author  JOHN
+ */
 public interface ISysRoleService extends IService<SysRole> {
-
     /**
-     * 查询用户的分页集合
-     * @param roleBO
+     * 通过分页查询分页信息
+     * @param sysRole
      * @return
      */
-    List<SysRole> getListPage(SysRoleBO roleBO);
+    List<SysRole> getRolePage(SysRole sysRole);
 
     /**
-     * 查询用户的集合
+     * 查询角色集合
+     * @param
      * @return
      */
-    List<SysRole> getList();
+    List<SysRole> getRoleListAll();
 
     /**
-     * 根据用户id查询用户的信息
-     * @param id
+     * 根据用户id查询角色集合
+     * @param userId
      * @return
      */
-    SysRole getByID(String id);
+    List<SysRole> getRolesByUserId(Long userId);
 
     /**
-     * 根据id物理删除角色信息
-     * @param id
+     * 通过角色id查询角色
+     * @param roleId
      * @return
      */
-    int deleteByID(String id);
-
+    SysRole getRoleById(Long roleId);
 
     /**
-     * 根据用户id修改角色信息
-     * @param role
+     * 通过id删除角色
+     * @param roleId
      * @return
      */
-    int updateByID(SysRole role);
+    int deleteRoleById(Long roleId);
+
+    /**
+     * 批量删除
+     * @param roleIds
+     * @return
+     */
+    int deleteRoleBatch(Long[] roleIds);
+
+    /**
+     * 修改角色
+     * @param roleId
+     * @return
+     */
+    int updateRoleById(Long roleId);
 
 }

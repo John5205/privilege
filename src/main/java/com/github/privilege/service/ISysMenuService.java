@@ -2,24 +2,24 @@ package com.github.privilege.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.github.privilege.bean.SysMenu;
-import com.github.privilege.bean.bo.SysMenuBO;
 
 import java.util.List;
 
+/**
+ * @author JOHN
+ */
 public interface ISysMenuService extends IService<SysMenu> {
     /**
-     * 查询分页菜单集合
+     * 查询菜单集合
+     * @param sysMenu
      * @return
      */
-    List<SysMenu> getListPage(SysMenuBO menuBO);
+    List<SysMenu> getMenuPage(SysMenu sysMenu);
 
     /**
-     * 新增菜单
+     * 查询菜单集合
      * @return
      */
-    int addMenu(SysMenu menu);
-
-
-
+    List<SysMenu> getMenuListAll();
 
 }

@@ -2,14 +2,17 @@ package com.github.privilege.bean;
 
 import lombok.Data;
 
+/**
+ * 用户和角色关联 sys_user_role
+ *
+ * @author ruoyi
+ */
 @Data
-public class SysUserRole {
-    /**
-     * 用户id
-     */
-    private String userId;
-    /**
-     * 权限id
-     */
-    private String roleId;
+public class SysUserRole
+{
+    /** 用户ID */
+    private Long userId;
+
+    /** 角色ID */
+    private Long roleId;
 }

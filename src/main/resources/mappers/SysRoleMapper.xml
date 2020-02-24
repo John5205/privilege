@@ -6,7 +6,32 @@
     <sql id="Base_Column_List">
         id,role_id,username,account,password,status,tel_phone,email,modify_time,create_time
     </sql>
+    <!--    查询分页集合-->
+    <select id="getRolePage" resultType="com.github.privilege.bean.SysRole">
 
-
+    </select>
+    <!--    查询角色集合-->
+    <select id="getRoleListAll" resultType="com.github.privilege.bean.SysRole">
+        select * from sys_role
+    </select>
+    <!--    通过用户id查询角色-->
+    <select id="getRolesByUserId" resultType="com.github.privilege.bean.SysRole">
+        select distinct sys_role.* from sys_role
+        left join sys_user_role.role_id =sys_role.id
+        left join sys_user.id=sys_user_role.user_id
+        where  sys_user.id = #{userId}
+    </select>
+    <!--    通过角色id查询角色-->
+    <select id="getRoleById" resultType="com.github.privilege.bean.SysRole">
+        select * from sys_role where id = #{roleId}
+    </select>
+    <!--    批量删除-->
+    <delete id="deleteRoleBatch">
+        delete from sys_role
+        where id in
+        <foreach item="roleIds" collection="array" index="index" open="(" separator="," close=")">
+            #{roleIds}
+        </foreach>
+    </delete>
 
 </mapper>
