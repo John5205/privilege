@@ -6,11 +6,33 @@
     <sql id="Base_Column_List">
         id,role_id,username,account,password,status,tel_phone,email,modify_time,create_time
     </sql>
-
-<!--    查询查单集合-->
+    <!--    查询分页记录-->
+    <select id="getMenuPage" resultType="com.github.privilege.bean.SysMenu">
+        select * from sys_menu
+        <where>
+            <if test="menuName != null and menuName != '' ">
+                and menu_name like '%${menuName}%'
+            </if>
+        </where>
+    </select>
+    <!--    查询查单集合-->
     <select id="getMenuListAll" resultType="com.github.privilege.bean.SysMenu">
         select * from sys_menu
     </select>
-
+    <!--    通过id删除菜单-->
+    <delete id="deleteMenuById">
+        delete from sys_menu where menuId =#{menuId} or parentId = #{menuId}
+    </delete>
+    <!--    批量删除-->
+    <delete id="deleteMenuAll">
+        delete from sys_menu where menuId in
+        <foreach collection="array" open="(" separator="," close=")" item="menuIds" index="index">
+            #{menuIds}
+        </foreach>
+        or
+        <foreach collection="array" open="(" separator="," close=")" item="menuIds" index="index">
+            parentId = #{menuIds}
+        </foreach>
+    </delete>
 
 </mapper>

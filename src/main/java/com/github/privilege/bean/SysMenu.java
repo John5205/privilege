@@ -30,9 +30,6 @@ public class SysMenu extends BaseEntity
     @Size(min = 0, max = 50, message = "菜单名称长度不能超过50个字符")
     private String menuName;
 
-    /** 父菜单名称 */
-    private String parentName;
-
     /** 父菜单ID */
     private Long parentId;
 

@@ -33,4 +33,14 @@ public class SysMenuServiceImpl extends ServiceImpl<ISysMenuDao, SysMenu> implem
     public int updateMenu(SysMenu sysMenu) {
         return baseMapper.updateById(sysMenu);
     }
+
+    @Override
+    public int deleteMenuById(Long menuId) {
+        return baseMapper.deleteMenuById(menuId);
+    }
+
+    @Override
+    public int deleteMenuAll(Long menuIds) {
+        return baseMapper.deleteMenuAll(menuIds);
+    }
 }
