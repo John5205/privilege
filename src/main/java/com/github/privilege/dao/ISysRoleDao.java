@@ -3,6 +3,8 @@ package com.github.privilege.dao;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.github.privilege.bean.SysRole;
+import com.github.privilege.bean.SysUser;
+import com.github.privilege.bean.vo.SysUserVO;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -43,4 +45,18 @@ public interface ISysRoleDao extends BaseMapper<SysRole> {
      * @return
      */
     int deleteRoleBatch(Long roleIds);
+
+    /**
+     * 根据角色id该角色有哪些用户
+     * @param userVO
+     * @return
+     */
+    List<SysUser> getUserRoleById(SysUserVO userVO);
+
+    /**
+     * 通过角色id查询该角色未拥有的用户
+     * @param userVO
+     * @return
+     */
+    List<SysUser> getUserUNRoleById(SysUserVO userVO);
 }

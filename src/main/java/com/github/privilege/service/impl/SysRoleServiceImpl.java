@@ -3,6 +3,8 @@ package com.github.privilege.service.impl;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.github.privilege.bean.SysRole;
+import com.github.privilege.bean.SysUser;
+import com.github.privilege.bean.vo.SysUserVO;
 import com.github.privilege.dao.ISysRoleDao;
 import com.github.privilege.service.ISysRoleService;
 
@@ -38,6 +40,23 @@ public class SysRoleServiceImpl extends ServiceImpl<ISysRoleDao, SysRole> implem
     @Override
     public SysRole getRoleById(Long roleId) {
         return baseMapper.getRoleById(roleId);
+    }
+    /**
+     * 根据角色id该角色有哪些用户
+     */
+    @Override
+    public List<SysUser> getUserRoleById(SysUserVO userVO) {
+        return baseMapper.getUserRoleById(userVO);
+    }
+
+    /**
+     * 通过角色id查询该未拥有的用户
+     * @param userVO
+     * @return
+     */
+    @Override
+    public List<SysUser> getUserUNRoleById(SysUserVO userVO) {
+        return baseMapper.getUserUNRoleById(userVO);
     }
 
     @Override

@@ -2,6 +2,8 @@ package com.github.privilege.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.github.privilege.bean.SysRole;
+import com.github.privilege.bean.SysUser;
+import com.github.privilege.bean.vo.SysUserVO;
 
 import java.util.List;
 
@@ -36,6 +38,20 @@ public interface ISysRoleService extends IService<SysRole> {
      * @return
      */
     SysRole getRoleById(Long roleId);
+
+    /**
+     * 根据角色id该角色拥有的用户
+     * @param userVO
+     * @return
+     */
+    List<SysUser> getUserRoleById(SysUserVO userVO);
+
+    /**
+     * 通过该角色id查询该角色没有哪些用户
+     * @param userVO
+     * @return
+     */
+    List<SysUser> getUserUNRoleById(SysUserVO userVO);
 
     /**
      * 通过id删除角色

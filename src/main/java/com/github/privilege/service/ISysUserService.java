@@ -25,10 +25,10 @@ public interface ISysUserService extends IService<SysUser> {
 
     /**
      * 通过用户id查询
-     * @param id
+     * @param userId
      * @return
      */
-    int getUserById(Long id);
+    int getUserById(Long userId);
 
     /**
      * 通过手机号查询用户信息
@@ -71,15 +71,15 @@ public interface ISysUserService extends IService<SysUser> {
 
     /**
      * 通过id删除用户信息
-     * @param id
+     * @param userId
      * @return
      */
-    int deleteUserById(Long id);
+    int deleteUserById(Long userId);
 
     /**
      * 批量删除用户信息
-     * @param ids
+     * @param userIds
      * @return
      */
-    int deleteUserBatch(Long ids);
+    int deleteUserBatch(Long userIds);
 }
