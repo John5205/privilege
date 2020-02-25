@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.github.privilege.bean.SysMenu;
 
 import java.util.List;
+import java.util.Set;
 
 /**
  * @author JOHN
@@ -21,6 +22,24 @@ public interface ISysMenuService extends IService<SysMenu> {
      * @return
      */
     List<SysMenu> getMenuListAll();
+
+    /**
+     * 通过id查询查询菜单信息
+     * @param menuId
+     * @return
+     */
+    SysMenu getMenuById(Long menuId);
+
+    /**
+     * 通过用户id查询用户权限集合
+     */
+    Set<String> getUserPermsById(Long userId);
+
+    /**
+     * 通过用户的id查询所有菜单
+     * @return
+     */
+    List<SysMenu> getMenuAll(Long userId);
 
     /**
      * 新增菜单

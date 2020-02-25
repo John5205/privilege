@@ -34,4 +34,25 @@ public interface ISysMenuDao extends BaseMapper<SysMenu> {
      * @return
      */
     int deleteMenuAll(Long menuIds);
+
+    /**
+     * 通过id查询菜单信息
+     * @param menuId
+     * @return
+     */
+    SysMenu getMenuById(Long menuId);
+
+    /**
+     * 根据用户id查询权限集合
+     * @param userId
+     * @return
+     */
+    List<String> getUserPermsById(Long userId);
+
+    /**
+     * 通过用户id查询所有菜单
+     * @param userId
+     * @return
+     */
+    List<SysMenu> getMenuAllByUserId(Long userId);
 }

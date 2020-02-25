@@ -68,4 +68,14 @@ public class SysUser extends BaseEntity
     /** 最后登陆时间 */
     private String loginDate;
 
+    public boolean isAdmin()
+    {
+        return isAdmin(this.userId);
+    }
+
+    public static boolean isAdmin(Long userId)
+    {
+        return userId != null && 1L == userId;
+    }
+
 }

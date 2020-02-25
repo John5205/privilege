@@ -19,6 +19,30 @@
     <select id="getMenuListAll" resultType="com.github.privilege.bean.SysMenu">
         select * from sys_menu
     </select>
+    <!--    通过id查询菜单信息-->
+    <select id="getMenuById" resultType="com.github.privilege.bean.SysMenu">
+        select * from sys_menu where  menu_id = #{menuId}
+    </select>
+<!--    根据用户id查询权限集合-->
+    <select id="getUserPermsById" resultType="java.lang.String">
+        select distinct sys_menu.perms
+		from sys_menu
+			 left join sys_role_menu  on sys_menu.menu_id = sys_role_menu.menu_id
+			 left join sys_user_role on sys_role_menu.role_id = sys_user_role.role_id
+		where sys_user_role.user_id = #{userId}
+    </select>
+<!--    通过用户id查询所有菜单集合-->
+    <select id="getMenuAllByUserId" resultType="com.github.privilege.bean.SysMenu">
+        select distinct sys_menu.menu_id, sys_menuparent_id, sys_menu.menu_name, sys_menu.url, sys_menu.visible, ifnull(sys_menu.perms,'') as perms,
+         sys_menu.target, sys_menu.menu_type, sys_menu.icon, sys_menu.order_num, sys_menu.create_time
+		from sys_menu
+			 left join sys_role_menu  on sys_menu.menu_id = sys_role_menu.menu_id
+			 left join sys_user_role  on sys_role_menu.role_id = sys_user_role.role_id
+			 LEFT JOIN sys_role  on sys_user_role.role_id = sys_role.role_id
+		where sys_user_role.user_id = #{userId}
+		order by sys_menu.parent_id, sys_menu.order_num
+    </select>
+
     <!--    通过id删除菜单-->
     <delete id="deleteMenuById">
         delete from sys_menu where menuId =#{menuId} or parentId = #{menuId}
@@ -27,11 +51,7 @@
     <delete id="deleteMenuAll">
         delete from sys_menu where menuId in
         <foreach collection="array" open="(" separator="," close=")" item="menuIds" index="index">
-            #{menuIds}
-        </foreach>
-        or
-        <foreach collection="array" open="(" separator="," close=")" item="menuIds" index="index">
-            parentId = #{menuIds}
+            #{menuIds} or parentId = #{menuIds}
         </foreach>
     </delete>
 
