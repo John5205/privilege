@@ -33,9 +33,9 @@
     <!--    根据角色id该角色有哪些用户-->
     <select id="getUserRoleById" resultType="com.github.privilege.bean.SysUser">
         select
-            *
+        *
         from (
-        select  sys_user.*
+        select sys_user.*
         from sys_user_role
         left join sys_user on sys_user.user_id = sys_user_role.user_id
         where sys_user_role.role_id = #{roleId}
@@ -57,16 +57,16 @@
     </select>
     <!--   根据角色id该角色未拥有用户 -->
     <select id="getUserUNRoleById" resultType="com.github.privilege.bean.SysUser">
-       select
-           *
-       from (
+        select
+        *
+        from (
         SELECT
-			*
+        *
         FROM sys_user
         WHERE NOT EXISTS (
-                SELECT  1 FROM sys_user_role
-                WHERE sys_user.user_id =sys_user_role.user_id AND sys_user_role.role_id = #{roleId}
-                )
+        SELECT 1 FROM sys_user_role
+        WHERE sys_user.user_id =sys_user_role.user_id AND sys_user_role.role_id = #{roleId}
+        )
         )a
         <where>
             <if test="loginName！= null and loginName != ''">
@@ -91,5 +91,20 @@
             #{roleIds}
         </foreach>
     </delete>
+
+    <!--    取消授权-->
+    <delete id="cancelAuthorization">
+        delete from sys_user_role where role_id =#{roleId}
+    </delete>
+
+    <!--    批量取消授权-->
+    <delete id="cancelAuthorizationAll">
+        delete from sys_user_role
+        where role_id in
+        <foreach collection="array" item="roleIds" index="index" open="(" separator="," close=")">
+            #{roleIds}
+        </foreach>
+    </delete>
+
 
 </mapper>

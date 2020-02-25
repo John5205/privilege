@@ -73,4 +73,14 @@ public class SysRoleServiceImpl extends ServiceImpl<ISysRoleDao, SysRole> implem
     public int updateRoleById(Long roleId) {
         return 0;
     }
+
+    @Override
+    public int cancelAuthorization(Long roleId) {
+        return baseMapper.cancelAuthorization(roleId);
+    }
+
+    @Override
+    public int cancelAuthorizationAll(Long roleIds) {
+        return baseMapper.cancelAuthorizationAll(roleIds);
+    }
 }

@@ -74,4 +74,18 @@ public interface ISysRoleService extends IService<SysRole> {
      */
     int updateRoleById(Long roleId);
 
+    /**
+     * 取消授权
+     * @param roleId
+     * @return
+     */
+    int cancelAuthorization(Long roleId);
+
+    /**
+     * 批量取消授权
+     * @param roleIds
+     * @return
+     */
+    int cancelAuthorizationAll(Long roleIds);
+
 }

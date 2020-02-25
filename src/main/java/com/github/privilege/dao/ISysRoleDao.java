@@ -59,4 +59,18 @@ public interface ISysRoleDao extends BaseMapper<SysRole> {
      * @return
      */
     List<SysUser> getUserUNRoleById(SysUserVO userVO);
+
+    /**
+     * 取消授权
+     * @param roleId
+     * @return
+     */
+    int cancelAuthorization(Long roleId);
+
+    /**
+     * 批量取消授权
+     * @param roleIds
+     * @return
+     */
+    int cancelAuthorizationAll(Long roleIds);
 }
