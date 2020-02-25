@@ -4,7 +4,7 @@
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id,role_id,username,account,password,status,tel_phone,email,modify_time,create_time
+       user_id,	login_name	,user_name	,email,	phone_number,	sex	avatar	,password,	salt	,status	,del_flag,	login_ip	,login_date	,create_date
     </sql>
 
     <!--    查询分页用户信息-->
@@ -13,17 +13,17 @@
         from sys_user
         <where>
             <if test="ew.username!=null and ew.username !=''">
-                user_name like '%${ew.username}%'
+             and   user_name like '%${ew.username}%'
             </if>
             <if test="ew.loginName !=null and ew.loginName !=''">
-                login_name = '%${ew.loginName}%'
+                and   login_name = '%${ew.loginName}%'
             </if>
             <if test="ew.roleId!=null and ew.roleId !=''">
-                role_id in
-                (select id from sys_role
+                and   role_id in
+                (select role_id from sys_role
                 <where>
                     <if test="ew.roleId != null and ew.roleId != ''">
-                        id = #{ew.roleId}
+                        role_id = #{ew.roleId}
                     </if>
                     <if test="ew.roleId != null and ew.roleId != ''">
                         role_name = #{ew.roleId}
@@ -40,11 +40,11 @@
     </select>
     <!--    通过用户id查询用户信息-->
     <select id="getUserById" resultType="java.lang.Integer">
-            select * from sys_user where id= #{id}
+            select * from sys_user where user_id= #{id}
     </select>
     <!--    通过手机号查询用户信息-->
     <select id="getPhone" resultType="java.lang.Integer">
-              select * from sys_user where phone= #{phone}
+              select * from sys_user where phone_number= #{phone}
     </select>
     <!--    通过邮箱查询用户信息-->
     <select id="getEmail" resultType="java.lang.Integer">
@@ -63,7 +63,7 @@
     <!-- 批量删除   -->
     <delete id="deleteUserBatch">
         delete from sys_user
-        where id in
+        where user_id in
         <foreach item="item" index="index" collection="array" open="(" separator="," close=")">
             #{item}
         </foreach>

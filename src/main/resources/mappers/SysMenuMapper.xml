@@ -38,7 +38,7 @@
 		from sys_menu
 			 left join sys_role_menu  on sys_menu.menu_id = sys_role_menu.menu_id
 			 left join sys_user_role  on sys_role_menu.role_id = sys_user_role.role_id
-			 LEFT JOIN sys_role  on sys_user_role.role_id = sys_role.role_id
+			 left join sys_role  on sys_user_role.role_id = sys_role.role_id
 		where sys_user_role.user_id = #{userId}
 		order by sys_menu.parent_id, sys_menu.order_num
     </select>

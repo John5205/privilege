@@ -57,14 +57,14 @@ public interface ISysMenuService extends IService<SysMenu> {
 
     /**
      * 通过id删除菜单信息
-     * @param id
+     * @param menuId
      * @return
      */
     int deleteMenuById(Long menuId);
 
     /**
      * 批量删除
-     * @param ids
+     * @param menuIds
      * @return
      */
     int deleteMenuAll(Long menuIds);

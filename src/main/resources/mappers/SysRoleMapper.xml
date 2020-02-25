@@ -4,11 +4,16 @@
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id,role_id,username,account,password,status,tel_phone,email,modify_time,create_time
+       role_id,	role_name,	role_key,	role_sort,	status,	del_flag,	create_date
     </sql>
     <!--    查询分页集合-->
     <select id="getRolePage" resultType="com.github.privilege.bean.SysRole">
-
+        select * from sys_role
+        <where>
+            <if test="ew.roleName != null and ew.roleName !='' ">
+                and role_name = #{roleName}
+            </if>
+         </where>
     </select>
     <!--    查询角色集合-->
     <select id="getRoleListAll" resultType="com.github.privilege.bean.SysRole">
@@ -17,18 +22,18 @@
     <!--    通过用户id查询角色-->
     <select id="getRolesByUserId" resultType="com.github.privilege.bean.SysRole">
         select distinct sys_role.* from sys_role
-        left join sys_user_role.role_id =sys_role.id
-        left join sys_user.id=sys_user_role.user_id
+        left join sys_user_role.role_id =sys_role.role_id
+        left join sys_user.user_id=sys_user_role.user_id
         where  sys_user.id = #{userId}
     </select>
     <!--    通过角色id查询角色-->
     <select id="getRoleById" resultType="com.github.privilege.bean.SysRole">
-        select * from sys_role where id = #{roleId}
+        select * from sys_role where role_id = #{roleId}
     </select>
     <!--    批量删除-->
     <delete id="deleteRoleBatch">
         delete from sys_role
-        where id in
+        where role_id in
         <foreach item="roleIds" collection="array" index="index" open="(" separator="," close=")">
             #{roleIds}
         </foreach>

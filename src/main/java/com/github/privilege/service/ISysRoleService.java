@@ -49,7 +49,7 @@ public interface ISysRoleService extends IService<SysRole> {
      * @param roleIds
      * @return
      */
-    int deleteRoleBatch(Long[] roleIds);
+    int deleteRoleBatch(Long roleIds);
 
     /**
      * 修改角色

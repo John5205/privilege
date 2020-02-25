@@ -62,5 +62,5 @@ public interface ISysUserDao extends BaseMapper<SysUser> {
      * @param ids
      * @return
      */
-    int deleteUserBatch(Long[] ids);
+    int deleteUserBatch(Long ids);
 }

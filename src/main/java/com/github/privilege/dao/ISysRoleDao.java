@@ -42,5 +42,5 @@ public interface ISysRoleDao extends BaseMapper<SysRole> {
      * @param roleIds
      * @return
      */
-    int deleteRoleBatch(Long[] roleIds);
+    int deleteRoleBatch(Long roleIds);
 }

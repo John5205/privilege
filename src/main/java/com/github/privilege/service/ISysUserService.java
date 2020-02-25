@@ -81,5 +81,5 @@ public interface ISysUserService extends IService<SysUser> {
      * @param ids
      * @return
      */
-    int deleteUserBatch(Long[] ids);
+    int deleteUserBatch(Long ids);
 }

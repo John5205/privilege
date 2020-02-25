@@ -14,6 +14,11 @@ import java.util.List;
 import java.util.Set;
 
 public class SysMenuServiceImpl extends ServiceImpl<ISysMenuDao, SysMenu> implements ISysMenuService {
+    /**
+     * 分页查询
+     * @param sysMenu
+     * @return
+     */
     @Override
     public List<SysMenu> getMenuPage(SysMenu sysMenu) {
         Page page = new Page(sysMenu.getPageNum(), sysMenu.getPageSize());
@@ -29,11 +34,21 @@ public class SysMenuServiceImpl extends ServiceImpl<ISysMenuDao, SysMenu> implem
         return baseMapper.getMenuListAll();
     }
 
+    /**
+     * 通过id查询菜单详情
+     * @param menuId
+     * @return
+     */
     @Override
     public SysMenu getMenuById(Long menuId) {
         return baseMapper.getMenuById(menuId);
     }
 
+    /**
+     * 通过用户id查询权限
+     * @param userId
+     * @return
+     */
     @Override
     public Set<String> getUserPermsById(Long userId) {
         List<String> perms = baseMapper.getUserPermsById(userId);
@@ -46,6 +61,11 @@ public class SysMenuServiceImpl extends ServiceImpl<ISysMenuDao, SysMenu> implem
         return set;
     }
 
+    /**
+     * 通过用户id查询所有菜单
+     * @param userId
+     * @return
+     */
     @Override
     public List<SysMenu> getMenuAll(Long userId) {
         List<SysMenu> menuList ;
@@ -57,21 +77,41 @@ public class SysMenuServiceImpl extends ServiceImpl<ISysMenuDao, SysMenu> implem
         return menuList;
     }
 
+    /**
+     * 新增菜单
+     * @param sysMenu
+     * @return
+     */
     @Override
     public int insertMenu(SysMenu sysMenu) {
         return baseMapper.insert(sysMenu);
     }
 
+    /**
+     * 修改菜单
+     * @param sysMenu
+     * @return
+     */
     @Override
     public int updateMenu(SysMenu sysMenu) {
         return baseMapper.updateById(sysMenu);
     }
 
+    /**
+     * 通过id删除菜单
+     * @param menuId
+     * @return
+     */
     @Override
     public int deleteMenuById(Long menuId) {
         return baseMapper.deleteMenuById(menuId);
     }
 
+    /**
+     * 批量删除
+     * @param menuIds
+     * @return
+     */
     @Override
     public int deleteMenuAll(Long menuIds) {
         return baseMapper.deleteMenuAll(menuIds);

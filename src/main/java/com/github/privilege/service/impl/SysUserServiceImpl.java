@@ -116,7 +116,7 @@ public class SysUserServiceImpl extends ServiceImpl<ISysUserDao, SysUser> implem
      */
     @Override
     @Transactional
-    public int deleteUserBatch(Long[] ids) {
+    public int deleteUserBatch(Long ids) {
         return baseMapper.deleteUserBatch(ids);
     }
 }

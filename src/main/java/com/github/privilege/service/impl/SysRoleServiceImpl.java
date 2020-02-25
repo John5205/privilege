@@ -46,7 +46,7 @@ public class SysRoleServiceImpl extends ServiceImpl<ISysRoleDao, SysRole> implem
     }
 
     @Override
-    public int deleteRoleBatch(Long[] roleIds) {
+    public int deleteRoleBatch(Long roleIds) {
         return baseMapper.deleteRoleBatch(roleIds);
     }
 
