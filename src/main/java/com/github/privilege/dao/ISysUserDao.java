@@ -64,4 +64,12 @@ public interface ISysUserDao extends BaseMapper<SysUser> {
      * @return
      */
     int deleteUserBatch(Long ids);
+
+    /**
+     * 重置密码
+     * @param userId
+     * @param password
+     * @return
+     */
+    int resetPassWord(Long userId, String password);
 }

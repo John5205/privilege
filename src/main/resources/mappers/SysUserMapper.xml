@@ -78,5 +78,13 @@
         </foreach>
     </delete>
 
+    <update id="resetPassWord">
+        update sys_user
+        <set>
+            <if test="password != null and password != ''">password = #{password},</if>
+        </set>
+        where user_id = #{userId}
+    </update>
+
 
 </mapper>

@@ -146,4 +146,15 @@ public class SysUserServiceImpl extends ServiceImpl<ISysUserDao, SysUser> implem
     public int deleteUserBatch(Long ids) {
         return baseMapper.deleteUserBatch(ids);
     }
+
+    /**
+     * 重置密码
+     * @param userId 用户id
+     * @param password 密码
+     * @return
+     */
+    @Override
+    public int resetPassWord(Long userId, String password) {
+        return  baseMapper.resetPassWord(userId,password);
+    }
 }

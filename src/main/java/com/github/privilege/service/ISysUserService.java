@@ -83,4 +83,14 @@ public interface ISysUserService extends IService<SysUser> {
      * @return
      */
     int deleteUserBatch(Long userIds);
+
+    /**
+     * 通过用户的id重置密码
+     * @param userId 用户id
+     * @param password 密码
+     * @return
+     */
+    int resetPassWord(Long userId,String password);
+
+
 }
