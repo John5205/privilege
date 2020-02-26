@@ -2,6 +2,7 @@ package com.github.privilege.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.github.privilege.bean.SysUser;
+import com.github.privilege.bean.vo.UserVO;
 
 import java.util.List;
 
@@ -12,10 +13,10 @@ public interface ISysUserService extends IService<SysUser> {
 
     /**
      * 分页查询用户信息
-     * @param sysUser
+     * @param userVO
      * @return
      */
-    List<SysUser> getListPage(SysUser sysUser);
+    List<SysUser> getListPage(UserVO userVO);
 
     /**
      * 查询集合
@@ -67,7 +68,7 @@ public interface ISysUserService extends IService<SysUser> {
      * @param sysUser
      * @return
      */
-    int insertUserById(SysUser sysUser);
+    int insertUser(SysUser sysUser);
 
     /**
      * 通过id删除用户信息

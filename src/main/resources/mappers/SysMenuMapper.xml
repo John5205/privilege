@@ -10,8 +10,8 @@
     <select id="getMenuPage" resultType="com.github.privilege.bean.SysMenu">
         select * from sys_menu
         <where>
-            <if test="menuName != null and menuName != '' ">
-                and menu_name like '%${menuName}%'
+            <if test="ew.menuName != null and ew.menuName != '' ">
+                and menu_name like '%${ew.menuName}%'
             </if>
         </where>
     </select>

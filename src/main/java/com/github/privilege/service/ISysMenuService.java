@@ -2,6 +2,7 @@ package com.github.privilege.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.github.privilege.bean.SysMenu;
+import com.github.privilege.bean.vo.MenuVO;
 
 import java.util.List;
 import java.util.Set;
@@ -12,10 +13,10 @@ import java.util.Set;
 public interface ISysMenuService extends IService<SysMenu> {
     /**
      * 查询菜单集合
-     * @param sysMenu
+     * @param menuVO
      * @return
      */
-    List<SysMenu> getMenuPage(SysMenu sysMenu);
+    List<SysMenu> getMenuPage(MenuVO menuVO);
 
     /**
      * 查询菜单集合

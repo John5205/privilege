@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.github.privilege.bean.SysRole;
 import com.github.privilege.bean.SysUser;
+import com.github.privilege.bean.vo.RoleVO;
 import com.github.privilege.bean.vo.SysUserVO;
 import org.apache.ibatis.annotations.Param;
 
@@ -14,10 +15,10 @@ public interface ISysRoleDao extends BaseMapper<SysRole> {
     /**
      * 查询角色分页
      * @param page
-     * @param sysRole
+     * @param roleVO
      * @return
      */
-    List<SysRole> getRolePage(Page page,@Param("ew") SysRole sysRole);
+    List<SysRole> getRolePage(Page page,@Param("ew") RoleVO roleVO);
 
     /**
      * 查询角色信息
@@ -51,14 +52,14 @@ public interface ISysRoleDao extends BaseMapper<SysRole> {
      * @param userVO
      * @return
      */
-    List<SysUser> getUserRoleById(SysUserVO userVO);
+    List<SysUser> getUserRoleById(Page page,@Param("ew") SysUserVO userVO);
 
     /**
      * 通过角色id查询该角色未拥有的用户
      * @param userVO
      * @return
      */
-    List<SysUser> getUserUNRoleById(SysUserVO userVO);
+    List<SysUser> getUserUNRoleById(Page page ,@Param("ew") SysUserVO userVO);
 
     /**
      * 取消授权

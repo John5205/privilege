@@ -3,24 +3,33 @@ package com.github.privilege.service.impl;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.github.privilege.bean.SysUser;
+import com.github.privilege.bean.SysUserRole;
+import com.github.privilege.bean.vo.UserVO;
 import com.github.privilege.dao.ISysUserDao;
+import com.github.privilege.dao.ISysUserRoleDao;
 import com.github.privilege.service.ISysUserService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class SysUserServiceImpl extends ServiceImpl<ISysUserDao, SysUser> implements ISysUserService {
+
+    @Resource
+    private ISysUserRoleDao userRoleDao;
+
     /**
      * 分页查询用户信息
-     * @param sysUser
+     * @param userVO
      * @return
      */
     @Override
-    public List<SysUser> getListPage(SysUser sysUser) {
-        Page page = new Page(sysUser.getPageNum(), sysUser.getPageSize());
-        return baseMapper.getListPage(page,sysUser);
+    public List<SysUser> getListPage(UserVO userVO) {
+        Page page = new Page(userVO.getPageNum(), userVO.getPageSize());
+        return baseMapper.getListPage(page,userVO);
     }
 
     /**
@@ -96,8 +105,24 @@ public class SysUserServiceImpl extends ServiceImpl<ISysUserDao, SysUser> implem
      */
     @Override
     @Transactional
-    public int insertUserById(SysUser sysUser) {
-        return baseMapper.insert(sysUser);
+    public int insertUser(SysUser sysUser) {
+        baseMapper.insert(sysUser);
+        return insertUserRole(sysUser);
+    }
+
+    /**
+     * 批量添加用户角色信息
+     * @param user
+     */
+    public int insertUserRole(SysUser user){
+        List<SysUserRole> list = new ArrayList<>();
+        for (Long role:user.getRoleIds()) {
+            SysUserRole userRole = new SysUserRole();
+            userRole.setRoleId(role);
+            userRole.setUserId(user.getUserId());
+            list.add(userRole);
+        }
+       return userRoleDao.batchInsertUserRole(list);
     }
 
     /**

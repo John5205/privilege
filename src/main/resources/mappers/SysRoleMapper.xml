@@ -11,7 +11,7 @@
         select * from sys_role
         <where>
             <if test="ew.roleName != null and ew.roleName !='' ">
-                and role_name = #{roleName}
+                and role_name = #{ew.roleName}
             </if>
         </where>
     </select>
@@ -38,20 +38,20 @@
             select sys_user.*
             from sys_user_role
             left join sys_user on sys_user.user_id = sys_user_role.user_id
-            where sys_user_role.role_id = #{roleId}
+            where sys_user_role.role_id = #{ew.roleId}
         ) a
         <where>
-            <if test="loginName！= null and loginName != ''">
-                and a.login_name like '%${loginName}%'
+            <if test="ew.loginName！= null and ew.loginName != ''">
+                and a.login_name like '%${ew.loginName}%'
             </if>
-            <if test="userName！= null and userName != ''">
-                and a.user_name like '%${userName}%'
+            <if test="ew.userName！= null and ew.userName != ''">
+                and a.user_name like '%${ew.userName}%'
             </if>
-            <if test="email！= null and email != ''">
-                and a.email like '%${email}%'
+            <if test="ew.email！= null and ew.email != ''">
+                and a.email like '%${ew.email}%'
             </if>
-            <if test="phone！= null and phone != ''">
-                and a.phone_number like '%${phone}%'
+            <if test="ew.phone！= null and ew.phone != ''">
+                and a.phone_number like '%${ew.phone}%'
             </if>
         </where>
     </select>
@@ -65,21 +65,21 @@
             FROM sys_user
             WHERE NOT EXISTS (
                 SELECT 1 FROM sys_user_role
-                WHERE sys_user.user_id =sys_user_role.user_id AND sys_user_role.role_id = #{roleId}
+                WHERE sys_user.user_id =sys_user_role.user_id AND sys_user_role.role_id = #{ew.roleId}
             )
         ) a
         <where>
-            <if test="loginName！= null and loginName != ''">
-                and a.login_name like '%${loginName}%'
+            <if test="ew.loginName！= null and ew.loginName != ''">
+                and a.login_name like '%${ew.loginName}%'
             </if>
-            <if test="userName！= null and userName != ''">
-                and a.user_name like '%${userName}%'
+            <if test="ew.userName！= null and ew.userName != ''">
+                and a.user_name like '%${ew.userName}%'
             </if>
-            <if test="email！= null and email != ''">
-                and a.email like '%${email}%'
+            <if test="ew.email！= null and ew.email != ''">
+                and a.email like '%${ew.email}%'
             </if>
-            <if test="phone！= null and phone != ''">
-                and a.phone_number like '%${phone}%'
+            <if test="ew.phone！= null and ew.phone != ''">
+                and a.phone_number like '%${ew.phone}%'
             </if>
         </where>
     </select>

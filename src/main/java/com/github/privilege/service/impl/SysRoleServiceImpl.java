@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.github.privilege.bean.SysRole;
 import com.github.privilege.bean.SysRoleMenu;
 import com.github.privilege.bean.SysUser;
+import com.github.privilege.bean.vo.RoleVO;
 import com.github.privilege.bean.vo.SysUserVO;
 import com.github.privilege.dao.ISysRoleDao;
 import com.github.privilege.dao.ISysRoleMenuDao;
@@ -23,9 +24,9 @@ public class SysRoleServiceImpl extends ServiceImpl<ISysRoleDao, SysRole> implem
     private ISysRoleMenuDao roleMenuDao;
 
     @Override
-    public List<SysRole> getRolePage(SysRole sysRole) {
-        Page page = new Page(sysRole.getPageNum(), sysRole.getPageSize());
-        return baseMapper.getRolePage(page,sysRole);
+    public List<SysRole> getRolePage(RoleVO roleVO) {
+        Page page = new Page(roleVO.getPageNum(), roleVO.getPageSize());
+        return baseMapper.getRolePage(page,roleVO);
     }
 
     @Override
@@ -57,7 +58,8 @@ public class SysRoleServiceImpl extends ServiceImpl<ISysRoleDao, SysRole> implem
      */
     @Override
     public List<SysUser> getUserRoleById(SysUserVO userVO) {
-        return baseMapper.getUserRoleById(userVO);
+        Page page = new Page(userVO.getPageNum(), userVO.getPageSize());
+        return baseMapper.getUserRoleById(page,userVO);
     }
 
     /**
@@ -67,7 +69,8 @@ public class SysRoleServiceImpl extends ServiceImpl<ISysRoleDao, SysRole> implem
      */
     @Override
     public List<SysUser> getUserUNRoleById(SysUserVO userVO) {
-        return baseMapper.getUserUNRoleById(userVO);
+        Page page = new Page(userVO.getPageNum(), userVO.getPageSize());
+        return baseMapper.getUserUNRoleById(page,userVO);
     }
 
     @Override

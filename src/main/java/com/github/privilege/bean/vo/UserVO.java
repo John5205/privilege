@@ -1,20 +1,15 @@
 package com.github.privilege.bean.vo;
 
 import com.github.privilege.bean.base.BaseEntity;
-import lombok.Data;
-
-import javax.validation.constraints.NotBlank;
 
 /**
- * @ClassName SysUserVO
+ * @ClassName UserVO
  * @Description TODO
  * @Author JOHN
- * @Date 2020/2/25 15:22
+ * @Date 2020/2/26 10:10
  * @Version 1.0
  **/
-@Data
-public class SysUserVO extends BaseEntity {
-
+public class UserVO extends BaseEntity {
     /**
      * 用户名
      */
@@ -33,9 +28,8 @@ public class SysUserVO extends BaseEntity {
     private String phone;
 
     /**
-     * 角色id
+     * 角色id或者角色名
      */
-    @NotBlank(message = "角色id不能为空")
     private String roleId;
 
 }

@@ -3,6 +3,8 @@ package com.github.privilege.dao;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.github.privilege.bean.SysMenu;
+import com.github.privilege.bean.vo.MenuVO;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -10,10 +12,10 @@ public interface ISysMenuDao extends BaseMapper<SysMenu> {
     /**
      * 查询菜单集合
      * @param page
-     * @param sysMenu
+     * @param menuVO
      * @return
      */
-    List<SysMenu> getMenuPage(Page page, SysMenu sysMenu);
+    List<SysMenu> getMenuPage(Page page, @Param("ew") MenuVO menuVO);
 
     /**
      * 查询菜单集合

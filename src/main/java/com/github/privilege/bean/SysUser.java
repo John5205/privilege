@@ -1,8 +1,8 @@
 package com.github.privilege.bean;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
-import com.github.privilege.bean.base.BaseEntity;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -17,7 +17,7 @@ import javax.validation.constraints.Size;
  */
 @Data
 @NoArgsConstructor
-public class SysUser extends BaseEntity
+public class SysUser
 {
     private static final long serialVersionUID = 1L;
 
@@ -66,6 +66,11 @@ public class SysUser extends BaseEntity
 
     /** 最后登陆时间 */
     private String loginDate;
+    /**
+     * 角色id
+     */
+    @TableField(exist = false)
+    private Long[] roleIds;
 
     public boolean isAdmin()
     {

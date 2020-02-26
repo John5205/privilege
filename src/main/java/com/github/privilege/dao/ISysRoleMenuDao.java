@@ -13,6 +13,10 @@ import java.util.List;
  * @Version 1.0
  **/
 public interface ISysRoleMenuDao extends BaseMapper<SysRoleMenu> {
-
+    /**
+     * 新增角色填加菜单
+     * @param list
+     * @return
+     */
     int batchInsertRoleMenu(List<SysRoleMenu> list);
 }

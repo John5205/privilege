@@ -3,6 +3,7 @@ package com.github.privilege.service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.github.privilege.bean.SysRole;
 import com.github.privilege.bean.SysUser;
+import com.github.privilege.bean.vo.RoleVO;
 import com.github.privilege.bean.vo.SysUserVO;
 
 import java.util.List;
@@ -13,10 +14,10 @@ import java.util.List;
 public interface ISysRoleService extends IService<SysRole> {
     /**
      * 通过分页查询分页信息
-     * @param sysRole
+     * @param roleVO
      * @return
      */
-    List<SysRole> getRolePage(SysRole sysRole);
+    List<SysRole> getRolePage(RoleVO roleVO);
 
     /**
      * 查询角色集合

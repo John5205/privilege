@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.github.privilege.bean.SysMenu;
 import com.github.privilege.bean.SysUser;
+import com.github.privilege.bean.vo.MenuVO;
 import com.github.privilege.dao.ISysMenuDao;
 import com.github.privilege.service.ISysMenuService;
 import org.apache.commons.lang3.StringUtils;
@@ -19,13 +20,13 @@ import java.util.Set;
 public class SysMenuServiceImpl extends ServiceImpl<ISysMenuDao, SysMenu> implements ISysMenuService {
     /**
      * 分页查询
-     * @param sysMenu
+     * @param menuVO
      * @return
      */
     @Override
-    public List<SysMenu> getMenuPage(SysMenu sysMenu) {
-        Page page = new Page(sysMenu.getPageNum(), sysMenu.getPageSize());
-        return baseMapper.getMenuPage(page,sysMenu);
+    public List<SysMenu> getMenuPage(MenuVO menuVO) {
+        Page page = new Page(menuVO.getPageNum(), menuVO.getPageSize());
+        return baseMapper.getMenuPage(page,menuVO);
     }
 
     /**
