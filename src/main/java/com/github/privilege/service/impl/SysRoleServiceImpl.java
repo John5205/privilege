@@ -3,14 +3,25 @@ package com.github.privilege.service.impl;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.github.privilege.bean.SysRole;
+import com.github.privilege.bean.SysRoleMenu;
 import com.github.privilege.bean.SysUser;
 import com.github.privilege.bean.vo.SysUserVO;
 import com.github.privilege.dao.ISysRoleDao;
+import com.github.privilege.dao.ISysRoleMenuDao;
 import com.github.privilege.service.ISysRoleService;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class SysRoleServiceImpl extends ServiceImpl<ISysRoleDao, SysRole> implements ISysRoleService {
+
+    @Resource
+    private ISysRoleMenuDao roleMenuDao;
+
     @Override
     public List<SysRole> getRolePage(SysRole sysRole) {
         Page page = new Page(sysRole.getPageNum(), sysRole.getPageSize());
@@ -58,6 +69,30 @@ public class SysRoleServiceImpl extends ServiceImpl<ISysRoleDao, SysRole> implem
     public List<SysUser> getUserUNRoleById(SysUserVO userVO) {
         return baseMapper.getUserUNRoleById(userVO);
     }
+
+    @Override
+    @Transactional
+    public int insertRole(SysRole sysRole) {
+        baseMapper.insert(sysRole);
+        return insertRoleMenu(sysRole);
+    }
+
+    /**
+     * 批量添加新角色菜单
+     * @param sysRole
+     * @return
+     */
+    public int insertRoleMenu(SysRole sysRole){
+        List<SysRoleMenu> list = new ArrayList<>();
+        for (Long menu:sysRole.getMenuIds()) {
+            SysRoleMenu roleMenu = new SysRoleMenu();
+            roleMenu.setMenuId(menu);
+            roleMenu.setRoleId(sysRole.getRoleId());
+            list.add(roleMenu);
+        }
+        return  roleMenuDao.batchInsertRoleMenu(list);
+    }
+
 
     @Override
     public int deleteRoleById(Long roleId) {

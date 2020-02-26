@@ -35,10 +35,10 @@
         select
         *
         from (
-        select sys_user.*
-        from sys_user_role
-        left join sys_user on sys_user.user_id = sys_user_role.user_id
-        where sys_user_role.role_id = #{roleId}
+            select sys_user.*
+            from sys_user_role
+            left join sys_user on sys_user.user_id = sys_user_role.user_id
+            where sys_user_role.role_id = #{roleId}
         ) a
         <where>
             <if test="loginName！= null and loginName != ''">
@@ -60,14 +60,14 @@
         select
         *
         from (
-        SELECT
-        *
-        FROM sys_user
-        WHERE NOT EXISTS (
-        SELECT 1 FROM sys_user_role
-        WHERE sys_user.user_id =sys_user_role.user_id AND sys_user_role.role_id = #{roleId}
-        )
-        )a
+            SELECT
+            *
+            FROM sys_user
+            WHERE NOT EXISTS (
+                SELECT 1 FROM sys_user_role
+                WHERE sys_user.user_id =sys_user_role.user_id AND sys_user_role.role_id = #{roleId}
+            )
+        ) a
         <where>
             <if test="loginName！= null and loginName != ''">
                 and a.login_name like '%${loginName}%'

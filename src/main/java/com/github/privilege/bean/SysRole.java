@@ -1,6 +1,7 @@
 package com.github.privilege.bean;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.github.privilege.bean.base.BaseEntity;
 import lombok.Data;
@@ -47,6 +48,9 @@ public class SysRole extends BaseEntity
 
     /** 用户是否存在此角色标识 默认不存在 */
     private boolean flag = false;
+
+    @TableField(exist = false)
+    private Long[] menuIds;
 
     public boolean isAdmin()
     {

@@ -4,7 +4,7 @@
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-       user_id,	login_name	,user_name	,email,	phone_number,	sex	avatar	,password,	salt	,status	,del_flag,	login_ip	,login_date	,create_date
+       user_id,	login_name	,user_name	,email,	phone_number,	sex,	avatar	,password,	salt	,status	,del_flag,	login_ip	,login_date	,create_date
     </sql>
 
     <!--    查询分页用户信息-->
@@ -13,20 +13,29 @@
         from sys_user
         <where>
             <if test="ew.username!=null and ew.username !=''">
-             and   user_name like '%${ew.username}%'
+                and user_name like '%${ew.username}%'
             </if>
             <if test="ew.loginName !=null and ew.loginName !=''">
-                and   login_name = '%${ew.loginName}%'
+                and login_name LIKE '%${ew.loginName}%'
+            </if>
+            <if test="ew.email !=null and ew.email !=''">
+                and email LIKE '%${ew.email}%'
+            </if>
+            <if test="ew.phoneNumber !=null and ew.phoneNumber !=''">
+                and phone_number LIKE '%${ew.phoneNumber}%'
+            </if>
+            <if test="ew.loginName !=null and ew.loginName !=''">
+                and login_name LIKE '%${ew.loginName}%'
             </if>
             <if test="ew.roleId!=null and ew.roleId !=''">
-                and   role_id in
+                and role_id in
                 (select role_id from sys_role
                 <where>
                     <if test="ew.roleId != null and ew.roleId != ''">
-                        role_id = #{ew.roleId}
+                        and role_id = #{ew.roleId}
                     </if>
                     <if test="ew.roleId != null and ew.roleId != ''">
-                        role_name = #{ew.roleId}
+                        and role_name = #{ew.roleId}
                     </if>
                 </where>
                 )
@@ -39,24 +48,24 @@
         select *  from sys_user
     </select>
     <!--    通过用户id查询用户信息-->
-    <select id="getUserById" resultType="java.lang.Integer">
+    <select id="getUserById" resultType="com.github.privilege.bean.SysUser">
             select * from sys_user where user_id= #{id}
     </select>
     <!--    通过手机号查询用户信息-->
-    <select id="getPhone" resultType="java.lang.Integer">
+    <select id="getPhone" resultType="com.github.privilege.bean.SysUser">
               select * from sys_user where phone_number= #{phone}
     </select>
     <!--    通过邮箱查询用户信息-->
-    <select id="getEmail" resultType="java.lang.Integer">
+    <select id="getEmail" resultType="com.github.privilege.bean.SysUser">
               select * from sys_user where email= #{email}
     </select>
     <!--    通过用户名查询用户信息-->
-    <select id="getUserName" resultType="java.lang.Integer">
+    <select id="getUserName" resultType="com.github.privilege.bean.SysUser">
               select * from sys_user where user_name= #{username}
     </select>
 
     <!--    通过账号查询用户信息-->
-    <select id="getLoginName" resultType="java.lang.Integer">
+    <select id="getLoginName" resultType="com.github.privilege.bean.SysUser">
             select * from sys_user where login_name= #{loginName}
     </select>
 

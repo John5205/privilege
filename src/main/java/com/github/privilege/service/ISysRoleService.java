@@ -54,6 +54,13 @@ public interface ISysRoleService extends IService<SysRole> {
     List<SysUser> getUserUNRoleById(SysUserVO userVO);
 
     /**
+     * 添加角色
+     * @param sysRole
+     * @return
+     */
+    int insertRole(SysRole sysRole);
+
+    /**
      * 通过id删除角色
      * @param roleId
      * @return

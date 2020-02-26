@@ -4,7 +4,7 @@
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id,role_id,username,account,password,status,tel_phone,email,modify_time,create_time
+       menu_id,	menu_name,	parent_id,	order_num,	url,	target,	menu_type, visible,	perms,	icon,create_date
     </sql>
     <!--    查询分页记录-->
     <select id="getMenuPage" resultType="com.github.privilege.bean.SysMenu">
@@ -23,7 +23,7 @@
     <select id="getMenuById" resultType="com.github.privilege.bean.SysMenu">
         select * from sys_menu where  menu_id = #{menuId}
     </select>
-<!--    根据用户id查询权限集合-->
+    <!--    根据用户id查询权限集合-->
     <select id="getUserPermsById" resultType="java.lang.String">
         select distinct sys_menu.perms
 		from sys_menu
@@ -31,10 +31,10 @@
 			 left join sys_user_role on sys_role_menu.role_id = sys_user_role.role_id
 		where sys_user_role.user_id = #{userId}
     </select>
-<!--    通过用户id查询所有菜单集合-->
+    <!--    通过用户id查询所有菜单集合-->
     <select id="getMenuAllByUserId" resultType="com.github.privilege.bean.SysMenu">
         select distinct sys_menu.menu_id, sys_menuparent_id, sys_menu.menu_name, sys_menu.url, sys_menu.visible, ifnull(sys_menu.perms,'') as perms,
-         sys_menu.target, sys_menu.menu_type, sys_menu.icon, sys_menu.order_num, sys_menu.create_time
+         sys_menu.target, sys_menu.menu_type, sys_menu.icon, sys_menu.order_num, sys_menu.create_date
 		from sys_menu
 			 left join sys_role_menu  on sys_menu.menu_id = sys_role_menu.menu_id
 			 left join sys_user_role  on sys_role_menu.role_id = sys_user_role.role_id

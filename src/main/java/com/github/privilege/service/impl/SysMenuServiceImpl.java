@@ -6,13 +6,16 @@ import com.github.privilege.bean.SysMenu;
 import com.github.privilege.bean.SysUser;
 import com.github.privilege.dao.ISysMenuDao;
 import com.github.privilege.service.ISysMenuService;
-import com.github.privilege.utils.StringUtils;
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+@Service
 public class SysMenuServiceImpl extends ServiceImpl<ISysMenuDao, SysMenu> implements ISysMenuService {
     /**
      * 分页查询
@@ -83,6 +86,7 @@ public class SysMenuServiceImpl extends ServiceImpl<ISysMenuDao, SysMenu> implem
      * @return
      */
     @Override
+    @Transactional
     public int insertMenu(SysMenu sysMenu) {
         return baseMapper.insert(sysMenu);
     }

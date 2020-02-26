@@ -5,10 +5,12 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.github.privilege.bean.SysUser;
 import com.github.privilege.dao.ISysUserDao;
 import com.github.privilege.service.ISysUserService;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+@Service
 public class SysUserServiceImpl extends ServiceImpl<ISysUserDao, SysUser> implements ISysUserService {
     /**
      * 分页查询用户信息
@@ -36,7 +38,7 @@ public class SysUserServiceImpl extends ServiceImpl<ISysUserDao, SysUser> implem
      * @return
      */
     @Override
-    public int getUserById(Long id) {
+    public SysUser getUserById(Long id) {
         return baseMapper.getUserById(id);
     }
     /**
@@ -45,7 +47,7 @@ public class SysUserServiceImpl extends ServiceImpl<ISysUserDao, SysUser> implem
      * @return
      */
     @Override
-    public int getPhone(String phone) {
+    public SysUser getPhone(String phone) {
         return baseMapper.getPhone(phone);
     }
     /**
@@ -54,7 +56,7 @@ public class SysUserServiceImpl extends ServiceImpl<ISysUserDao, SysUser> implem
      * @return
      */
     @Override
-    public int getEmail(String email) {
+    public SysUser getEmail(String email) {
         return baseMapper.getEmail(email);
     }
     /**
@@ -63,7 +65,7 @@ public class SysUserServiceImpl extends ServiceImpl<ISysUserDao, SysUser> implem
      * @return
      */
     @Override
-    public int getUserName(String username) {
+    public SysUser getUserName(String username) {
         return baseMapper.getUserName(username);
     }
     /**
@@ -72,7 +74,7 @@ public class SysUserServiceImpl extends ServiceImpl<ISysUserDao, SysUser> implem
      * @return
      */
     @Override
-    public int getLoginName(String loginName) {
+    public SysUser getLoginName(String loginName) {
         return baseMapper.getLoginName(loginName);
     }
 
