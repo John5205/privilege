@@ -114,6 +114,7 @@ public class SysUserServiceImpl extends ServiceImpl<ISysUserDao, SysUser> implem
      * 批量添加用户角色信息
      * @param user
      */
+    @Transactional
     public int insertUserRole(SysUser user){
         List<SysUserRole> list = new ArrayList<>();
         for (Long role:user.getRoleIds()) {
