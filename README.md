@@ -7,15 +7,15 @@
 框架用到的springboot 、mybatis-plus
 
 #### 使用说明
-1、克隆/下载 git clone https://github.com/John5205/privilege.git
-2、打包 mvn clean package
-3、maven 导入
+    1、克隆/下载 git clone https://github.com/John5205/privilege.git
+    2、打包 mvn clean package
+    3、maven 导入
 
-   <dependency>
-        <groupId>com.github.privilege</groupId>
+    <dependency>
+    <groupId>com.github.privilege</groupId>
         <artifactId>privilege-1.0</artifactId>
         <version>1.0</version>
-   </dependency>
+    </dependency>
 
 
 

@@ -8,8 +8,8 @@
     <artifactId>privilege</artifactId>
     <version>1.0</version>
     <description>权限系统模块</description>
-    <name>utils</name>
-    <url>https://github.com/chenlijia1111/utils.git</url>
+    <name>privilege</name>
+    <url>https://github.com/John5205/privilege.git</url>
     <build>
         <plugins>
             <plugin>
@@ -56,14 +56,15 @@
     </licenses>
     <scm>
         <tag>master</tag>
-        <url>git@gitee.com:zhyjohn_admin/privilege.git</url>
-        <connection>scm:git:git@gitee.com:zhyjohn_admin/privilege.git</connection>
-        <developerConnection>scm:git:git@gitee.com:privilege</developerConnection>
+        <url>git@github.com:John5205/privilege.git</url>
+        <connection>scm:git:git@github.com:John5205/privilege.git</connection>
+        <developerConnection>scm:git:git@github.com:John5205/privilege.git</developerConnection>
     </scm>
     <developers>
         <developer>
-            <name>LUCKY</name>
+            <name>John5205</name>
             <email>18679691390@163.com</email>
+            <organization>John5205</organization>
         </developer>
     </developers>
     <distributionManagement>
