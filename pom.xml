@@ -4,10 +4,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.example</groupId>
+    <groupId>com.github</groupId>
     <artifactId>privilege</artifactId>
     <version>1.0</version>
     <description>权限系统模块</description>
+    <name>utils</name>
+    <url>https://github.com/chenlijia1111/utils.git</url>
     <build>
         <plugins>
             <plugin>
@@ -45,5 +47,61 @@
             <version>2.0.1.Final</version>
         </dependency>
     </dependencies>
-
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+    <scm>
+        <tag>master</tag>
+        <url>git@gitee.com:zhyjohn_admin/privilege.git</url>
+        <connection>scm:git:git@gitee.com:zhyjohn_admin/privilege.git</connection>
+        <developerConnection>scm:git:git@gitee.com:privilege</developerConnection>
+    </scm>
+    <developers>
+        <developer>
+            <name>LUCKY</name>
+            <email>18679691390@163.com</email>
+        </developer>
+    </developers>
+    <distributionManagement>
+        <!--要上传到的中央仓库-->
+        <repository>
+            <id>releases</id>
+            <name>Nexus Release Repository</name>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+        </repository>
+        <!--要上传到的临时仓库-->
+        <snapshotRepository>
+            <id>snapshots</id>
+            <name>Sonatype Nexus Snapshots</name>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
+    <!-- 配置阿里云中央仓库下载 国内加快下载速度 -->
+    <repositories>
+        <repository>
+            <id>maven-ali</id>
+            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+        </repository>
+        <!--下载快照版本-->
+        <repository>
+            <id>snapshots</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+            </snapshots>
+        </repository>
+    </repositories>
+    <parent>
+        <groupId>org.sonatype.oss</groupId>
+        <artifactId>oss-parent</artifactId>
+        <version>7</version>
+    </parent>
 </project>
