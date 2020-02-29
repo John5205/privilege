@@ -11,8 +11,6 @@ import javax.validation.constraints.Size;
 
 /**
  * 菜单权限表 sys_menu
- *
- * @author ruoyi
  */
 @Data
 public class SysMenu extends BaseEntity

@@ -5,13 +5,7 @@ import lombok.Data;
 
 import javax.validation.constraints.NotBlank;
 
-/**
- * @ClassName SysUserVO
- * @Description TODO
- * @Author JOHN
- * @Date 2020/2/25 15:22
- * @Version 1.0
- **/
+
 @Data
 public class SysUserVO extends BaseEntity {
 

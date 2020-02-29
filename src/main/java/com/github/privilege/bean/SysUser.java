@@ -12,8 +12,6 @@ import javax.validation.constraints.Size;
 
 /**
  * 用户对象 sys_user
- *
- * @author JOHN
  */
 @Data
 @NoArgsConstructor

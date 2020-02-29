@@ -64,8 +64,6 @@ public class SysRoleServiceImpl extends ServiceImpl<ISysRoleDao, SysRole> implem
 
     /**
      * 通过角色id查询该未拥有的用户
-     * @param userVO
-     * @return
      */
     @Override
     public List<SysUser> getUserUNRoleById(SysUserVO userVO) {
@@ -82,8 +80,6 @@ public class SysRoleServiceImpl extends ServiceImpl<ISysRoleDao, SysRole> implem
 
     /**
      * 批量添加新角色菜单
-     * @param sysRole
-     * @return
      */
     public int insertRoleMenu(SysRole sysRole){
         List<SysRoleMenu> list = new ArrayList<>();

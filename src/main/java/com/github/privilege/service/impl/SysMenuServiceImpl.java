@@ -20,8 +20,6 @@ import java.util.Set;
 public class SysMenuServiceImpl extends ServiceImpl<ISysMenuDao, SysMenu> implements ISysMenuService {
     /**
      * 分页查询
-     * @param menuVO
-     * @return
      */
     @Override
     public List<SysMenu> getMenuPage(MenuVO menuVO) {
@@ -31,7 +29,6 @@ public class SysMenuServiceImpl extends ServiceImpl<ISysMenuDao, SysMenu> implem
 
     /**
      * 查询查单集合
-     * @return
      */
     @Override
     public List<SysMenu> getMenuListAll() {
@@ -40,8 +37,6 @@ public class SysMenuServiceImpl extends ServiceImpl<ISysMenuDao, SysMenu> implem
 
     /**
      * 通过id查询菜单详情
-     * @param menuId
-     * @return
      */
     @Override
     public SysMenu getMenuById(Long menuId) {
@@ -50,8 +45,6 @@ public class SysMenuServiceImpl extends ServiceImpl<ISysMenuDao, SysMenu> implem
 
     /**
      * 通过用户id查询权限
-     * @param userId
-     * @return
      */
     @Override
     public Set<String> getUserPermsById(Long userId) {
@@ -67,8 +60,6 @@ public class SysMenuServiceImpl extends ServiceImpl<ISysMenuDao, SysMenu> implem
 
     /**
      * 通过用户id查询所有菜单
-     * @param userId
-     * @return
      */
     @Override
     public List<SysMenu> getMenuAll(Long userId) {
@@ -83,8 +74,6 @@ public class SysMenuServiceImpl extends ServiceImpl<ISysMenuDao, SysMenu> implem
 
     /**
      * 新增菜单
-     * @param sysMenu
-     * @return
      */
     @Override
     @Transactional
@@ -94,8 +83,6 @@ public class SysMenuServiceImpl extends ServiceImpl<ISysMenuDao, SysMenu> implem
 
     /**
      * 修改菜单
-     * @param sysMenu
-     * @return
      */
     @Override
     public int updateMenu(SysMenu sysMenu) {
@@ -104,8 +91,6 @@ public class SysMenuServiceImpl extends ServiceImpl<ISysMenuDao, SysMenu> implem
 
     /**
      * 通过id删除菜单
-     * @param menuId
-     * @return
      */
     @Override
     public int deleteMenuById(Long menuId) {
@@ -114,8 +99,6 @@ public class SysMenuServiceImpl extends ServiceImpl<ISysMenuDao, SysMenu> implem
 
     /**
      * 批量删除
-     * @param menuIds
-     * @return
      */
     @Override
     public int deleteMenuAll(Long menuIds) {

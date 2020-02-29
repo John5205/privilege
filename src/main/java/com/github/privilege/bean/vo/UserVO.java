@@ -2,13 +2,6 @@ package com.github.privilege.bean.vo;
 
 import com.github.privilege.bean.base.BaseEntity;
 
-/**
- * @ClassName UserVO
- * @Description TODO
- * @Author JOHN
- * @Date 2020/2/26 10:10
- * @Version 1.0
- **/
 public class UserVO extends BaseEntity {
     /**
      * 用户名

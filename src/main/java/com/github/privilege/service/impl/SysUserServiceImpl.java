@@ -23,8 +23,6 @@ public class SysUserServiceImpl extends ServiceImpl<ISysUserDao, SysUser> implem
 
     /**
      * 分页查询用户信息
-     * @param userVO
-     * @return
      */
     @Override
     public List<SysUser> getListPage(UserVO userVO) {
@@ -34,7 +32,6 @@ public class SysUserServiceImpl extends ServiceImpl<ISysUserDao, SysUser> implem
 
     /**
      * 查询用户所有信息
-     * @return
      */
     @Override
     public List<SysUser> getList() {
@@ -43,8 +40,6 @@ public class SysUserServiceImpl extends ServiceImpl<ISysUserDao, SysUser> implem
 
     /**
      * 通过用户id查询用户侧信息
-     * @param id
-     * @return
      */
     @Override
     public SysUser getUserById(Long id) {
@@ -52,8 +47,6 @@ public class SysUserServiceImpl extends ServiceImpl<ISysUserDao, SysUser> implem
     }
     /**
      * 通过用户手机查询用户侧信息
-     * @param phone
-     * @return
      */
     @Override
     public SysUser getPhone(String phone) {
@@ -61,8 +54,6 @@ public class SysUserServiceImpl extends ServiceImpl<ISysUserDao, SysUser> implem
     }
     /**
      * 通过用户邮箱查询用户侧信息
-     * @param email
-     * @return
      */
     @Override
     public SysUser getEmail(String email) {
@@ -70,8 +61,6 @@ public class SysUserServiceImpl extends ServiceImpl<ISysUserDao, SysUser> implem
     }
     /**
      * 通过用户名查询用户侧信息
-     * @param username
-     * @return
      */
     @Override
     public SysUser getUserName(String username) {
@@ -79,8 +68,6 @@ public class SysUserServiceImpl extends ServiceImpl<ISysUserDao, SysUser> implem
     }
     /**
      * 通过账号查询用户侧信息
-     * @param loginName
-     * @return
      */
     @Override
     public SysUser getLoginName(String loginName) {
@@ -89,8 +76,6 @@ public class SysUserServiceImpl extends ServiceImpl<ISysUserDao, SysUser> implem
 
     /**
      * 通过id修改用户信息
-     * @param sysUser
-     * @return
      */
     @Override
     @Transactional
@@ -100,8 +85,6 @@ public class SysUserServiceImpl extends ServiceImpl<ISysUserDao, SysUser> implem
 
     /**
      * 新增用户信息
-     * @param sysUser
-     * @return
      */
     @Override
     @Transactional
@@ -112,7 +95,6 @@ public class SysUserServiceImpl extends ServiceImpl<ISysUserDao, SysUser> implem
 
     /**
      * 批量添加用户角色信息
-     * @param user
      */
     @Transactional
     public int insertUserRole(SysUser user){
@@ -128,8 +110,6 @@ public class SysUserServiceImpl extends ServiceImpl<ISysUserDao, SysUser> implem
 
     /**
      * 通过id删除用户信息
-     * @param id
-     * @return
      */
     @Override
     @Transactional
@@ -139,8 +119,6 @@ public class SysUserServiceImpl extends ServiceImpl<ISysUserDao, SysUser> implem
 
     /**
      * 批量删除
-     * @param ids
-     * @return
      */
     @Override
     @Transactional
@@ -150,9 +128,6 @@ public class SysUserServiceImpl extends ServiceImpl<ISysUserDao, SysUser> implem
 
     /**
      * 重置密码
-     * @param userId 用户id
-     * @param password 密码
-     * @return
      */
     @Override
     public int resetPassWord(Long userId, String password) {
